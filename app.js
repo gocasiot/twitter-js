@@ -2,6 +2,9 @@ var express = require( 'express' );
 var swig = require('swig');
 var app = express(); // creates an instance of an express application
 var port = 3000;
+var tweetBank = require('./tweetBank.js');
+var routes = require('./routes/');
+app.use('/', routes);
 
 
 swig.setDefaults({cache: false});
@@ -23,18 +26,18 @@ var templateVars = {
 	backLink: 'skofjdlskfj'
 };
 
-// get/post: middleware
-app.get('/', function(request, response){
-	response.render('index', templateVars);
-});
+// // get/post: middleware
+// app.get('/', function(request, response){
+// 	response.render('index', templateVars);
+// });
 
-app.get('/is-anybody-in-there', function(request, response){
-	response.status(200);
-});
+// app.get('/is-anybody-in-there', function(request, response){
+// 	response.status(200);
+// });
 
-app.post('/modernism', function(request, response){
-	response.send("This is modern");
-});
+// app.post('/modernism', function(request, response){
+// 	response.send("This is modern");
+// });
 
 
 // swig render

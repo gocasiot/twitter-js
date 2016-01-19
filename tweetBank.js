@@ -48,6 +48,8 @@ for(var i=0; i<10; i++) {
   module.exports.add( getFakeName(), getFakeTweet() );
 }
 
+module.exports.add( "Gustavo", "awesome");
+
 //console.log(data);
 //console.log(find(data.name));
 
