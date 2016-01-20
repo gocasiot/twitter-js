@@ -2,10 +2,25 @@ var _ = require('lodash');
 
 var data = [];
 
+// //Original add function
+// function add (name, text) {
+//   data.push({ name: name, text: text });
+// };
 
-function add (name, text) {
-  data.push({ name: name, text: text });
+// New add function
+var addFunc = function (){
+    var timesCalled = 0;
+    
+    return function (name, text) {
+        data.push({name: name,text: text,id: timesCalled});
+        timesCalled++;
+        return timesCalled;
+    };
 };
+
+var add = addFunc();
+//-------
+
 
 function list () {
   return _.cloneDeep(data);
@@ -48,7 +63,7 @@ for(var i=0; i<10; i++) {
   module.exports.add( getFakeName(), getFakeTweet() );
 }
 
-module.exports.add( "Gustavo", "awesome");
+module.exports.add("Gustavo", "awesome");
 
 //console.log(data);
 //console.log(find(data.name));

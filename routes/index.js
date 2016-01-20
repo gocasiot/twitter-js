@@ -17,6 +17,15 @@ router.get( '/users/:name', function (req, res) {
 });
 
 
+//Challenge code
+router.get( '/tweets/:id', function (req, res) {
+  var result = +req.params.id; //+ sign converts to number
+  var filteredById = tweetBank.find({id: result});
+  res.render( 'index', {tweets: filteredById}); 
+});
+//
+
+
 
 
 
